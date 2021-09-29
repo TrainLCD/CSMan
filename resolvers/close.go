@@ -12,6 +12,10 @@ func (f *Resolver) Close(ticketId, reason string) error {
 			Path:  "resolvedReason",
 			Value: reason,
 		},
+		{
+			Path:  "updatedAt",
+			Value: firestore.ServerTimestamp,
+		},
 	})
 	if err != nil {
 		return err

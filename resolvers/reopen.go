@@ -12,6 +12,10 @@ func (f *Resolver) Reopen(ticketId string) error {
 			Path:  "resolvedReason",
 			Value: "",
 		},
+		{
+			Path:  "updatedAt",
+			Value: firestore.ServerTimestamp,
+		},
 	})
 	if err != nil {
 		return err
