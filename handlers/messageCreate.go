@@ -2,13 +2,14 @@ package handlers
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
 
 func (h *Handlers) MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if m.Author.ID == s.State.User.ID {
+	if m.Author.ID == s.State.User.ID || m.ChannelID != os.Getenv("AVAILABLE_CHANNEL_ID") {
 		return
 	}
 
